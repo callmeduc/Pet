@@ -1,0 +1,79 @@
+img.card-img-top {
+    height: 194px;
+}
+.form-text{
+    display: flex;
+}
+.form-text-small{
+    margin-left: 32px;
+
+    /* text-align: end; */
+}
+.card-title.h5 {
+    font-size: 20px;
+    height: 44px;
+}
+.form-group{
+    width: 100%;
+}
+.card-bottom{
+    display: flex;
+    width: 100%;
+    padding-top: 10px;
+}
+.card-bottom-small{
+    /* width: 65%; */
+    display: inline;
+}
+/* .card-bottom-small-left{
+    width: 35%;
+    display: inline;
+} */
+button.card-bottom-small-left.btn.btn-primary.btn-sm {
+    margin-top: 33px;
+}
+.rating-card{
+    margin-top: 8px;
+}
+label.form-label {
+    font-size: 16px;
+}
+.text-zoom{
+    padding-top: 12px;
+}
+a{
+    text-decoration: none!important;
+}
+
+/* icon cart  */
+.cart-icon{
+    margin-bottom: 9px;
+    border-radius:50%;
+    color: white;
+    background:rgba(255,0,0,.85);
+    line-height:1em;
+    position: absolute;
+    top: 9px;
+  }
+  /* end icon cart  */
+
+.cart-text{
+    margin-left: 6px;
+
+  }
+.qty-number{
+    margin:0px 10px 0px 10px;
+}
+.block-text-cart{
+    vertical-align: middle!important;  /* căn giữa theo chiều dọc  */
+    text-align: center;
+}
+td i.fa:hover{
+    color: red;
+}
+.text-right.col {
+    text-align: right;
+}
+.Toastify__toast {
+    box-shadow: none!important;
+}

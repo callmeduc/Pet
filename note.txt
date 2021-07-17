@@ -1,0 +1,15 @@
+#pizza/client 
+npx create-react-app client 
+npm i axios
+ - npm i redux react-redux redux-thunk redux-devtools-extension
+ - npm i react-router-dom
+
+#pizza
+ - npm init
+ - npm i express mongoose nodemon
+ - npm i dotenv
+
+
+
+ #css 
+ vertical-align: middle;    căn giữa
