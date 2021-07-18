@@ -30,7 +30,7 @@ const CartScreen = ({ history }) => {
                 <th>#</th>
                 <th>Name</th>
                 <th>Price</th>
-                <th>qty</th>
+                <th>Quantity</th>
                 <th>Image</th>
                 <th>#</th>
               </tr>
@@ -42,7 +42,7 @@ const CartScreen = ({ history }) => {
                   <td>{item.name}</td>
                   <td>
                     {item.qty} * {item.price} ={" "}
-                    {item.price} VNĐ
+                    {item.qty * item.price} VNĐ
                   </td>
                   <td>
                     <i

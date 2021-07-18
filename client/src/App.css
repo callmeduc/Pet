@@ -77,3 +77,7 @@ td i.fa:hover{
 .Toastify__toast {
     box-shadow: none!important;
 }
+/* productscreen */
+img.img-fluid {
+    width: 100%;
+}

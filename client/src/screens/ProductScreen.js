@@ -16,12 +16,12 @@ import { createProductReview, listProductDetails } from "../actions/productActio
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { addToCart } from "../actions/cartActions";
+import Loader from '../components/Loader'
 
 const ProductScreen = ({ history, match }) => {
   const [qty, setQty] = useState(1);
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
-  const productId = match.params.id;
 
   const dispatch = useDispatch();
 
@@ -32,8 +32,10 @@ const ProductScreen = ({ history, match }) => {
   const { userInfo } = userLogin;
   console.log(product);
   useEffect(() => {
-    dispatch(listProductDetails(productId));
-  }, [dispatch]);
+    if(!product._id || product._id !== match.params.id){
+      dispatch(listProductDetails(match.params.id));
+    }
+  }, [dispatch, match]);
 
   const addToCartHandler = () => {
     toast.info("You have added to cart.");
@@ -54,7 +56,12 @@ const ProductScreen = ({ history, match }) => {
       <Link className="btn btn-light my-3" to="/">
         Go Back
       </Link>
-      <>
+      {loading ? (
+        <Loader />
+      ) : error ? (
+        <Message variant='danger'>{error}</Message>
+      ) : (
+        <>
         <Row>
           <Col md={6}>
             <Image src={product.image} alt={product.name} fluid />
@@ -70,7 +77,7 @@ const ProductScreen = ({ history, match }) => {
                   text={`${product.numReviews} reviews`}
                 />
               </ListGroup.Item>
-              <ListGroup.Item>Price: ${product.price}</ListGroup.Item>
+              <ListGroup.Item>Price: {product.price} VNĐ</ListGroup.Item>
               <ListGroup.Item>
                 Description: {product.description}
               </ListGroup.Item>
@@ -135,7 +142,9 @@ const ProductScreen = ({ history, match }) => {
         <Row>
           <Col md={6}>
             <h2>Reviews</h2>
-            {/* {product.reviews.length === 0 && <Message>No Reviews</Message>} */}
+            {/* {product && (product.reviews.length === 0) && <Message>No Reviews</Message>} */}
+            { product.reviews && product.reviews.length === 0 && <Message>No Reviews</Message>}
+            {/* {product} */}
             <ListGroup variant="flush">
               <ListGroup.Item>
                 <h2>Write a Customer Review</h2>
@@ -179,6 +188,7 @@ const ProductScreen = ({ history, match }) => {
           </Col>
         </Row>
       </>
+      )}
     </>
   );
 };

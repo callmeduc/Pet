@@ -77,7 +77,7 @@ const submitHandler = (e) => {
             </Form.Group>
 
             <Form.Group controlId="price">
-              <Form.Label>Small Price</Form.Label>
+              <Form.Label>Price</Form.Label>
               <Form.Control
                 type="number"
                 placeholder="Enter price"
