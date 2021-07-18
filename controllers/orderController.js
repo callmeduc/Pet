@@ -37,14 +37,16 @@ const addOrderItems = asyncHandler(async (req, res) => {
 
     //send mail 
     // console.log(order)
+    // cart.cartItems.reduce((acc, item) => acc + item.price * item.qty, 0)
     
-  const total = orderItems.reduce((acc, item) => acc + item.price * item.price, 0)
+  const total = orderItems.reduce((acc, item) => acc + item.price * item.qty, 0)
   var i = 1;
     const bodySend = `<Table>
     <thead>
       <tr>
         <th>#</th>
         <th>Name</th>
+        <th>Qty</th>
         <th>Price</th>
       </tr>
     </thead>
@@ -53,6 +55,7 @@ const addOrderItems = asyncHandler(async (req, res) => {
       <tr>
         <td>${i++}</td>
         <td>${x.name}</td>
+        <td>${x.qty}</td>
         <td>${x.price}</td>
       </tr>`
       ))}

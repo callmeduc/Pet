@@ -41,11 +41,14 @@ const ProductScreen = ({ history, match }) => {
 
   console.log(product);
   useEffect(() => {
+    if(successProductReview){
+      window.location.reload();
+    }
     if(!product._id || product._id !== match.params.id){
       dispatch(listProductDetails(match.params.id));
       dispatch({ type: PRODUCT_CREATE_REVIEW_RESET })
     }
-  }, [dispatch, match, successProductReview, product._id]);
+  }, [dispatch, match, successProductReview, product]);
 
   const addToCartHandler = () => {
     toast.info("You have added to cart.");
@@ -192,7 +195,7 @@ const ProductScreen = ({ history, match }) => {
                         onChange={(e) => setComment(e.target.value)}
                       ></Form.Control>
                     </Form.Group>
-                    <Button disabled={loadingProductReview } type="submit" variant="primary">
+                    <Button disabled={loadingProductReview} type="submit" variant="primary">
                       Submit
                     </Button>
                   </Form>
