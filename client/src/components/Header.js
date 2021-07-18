@@ -17,7 +17,7 @@ const Header = () => {
     <Navbar bg="dark" variant="dark">
       <Container>
         <LinkContainer to="/">
-          <Navbar.Brand>PIZZA</Navbar.Brand>
+          <Navbar.Brand>PET FOOD</Navbar.Brand>
         </LinkContainer>
         <Nav className="mr-auto">
         {userInfo ? (
