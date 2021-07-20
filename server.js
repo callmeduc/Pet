@@ -4,7 +4,7 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 
-const port = process.env.PORT || 4010
+const port = process.env.PORT || 3030
 // Connect the database
 const database = process.env.DATABASE
 mongoose.connect(database, {
