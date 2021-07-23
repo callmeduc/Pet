@@ -172,6 +172,7 @@ const OrderScreen = ({ match, history }) => {
                           </option>
                           <option value="1" disabled={order.orderStatus === 1}>Delivering</option>
                           <option value="2">Delivered</option>
+                          <option value="3">Cancel</option>
                         </Form.Control>
                         <Button type="submit" className="btn btn-block">
                           Mark As Delivered
