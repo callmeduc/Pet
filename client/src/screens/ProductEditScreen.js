@@ -15,6 +15,7 @@ const ProductEditScreen = ({ match, history }) => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
   const [image, setImage] = useState("");
+  const [countInStock, setCountInStock] = useState(0)
   const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
   const [uploading, setUploading] = useState(false);
@@ -40,6 +41,7 @@ const ProductEditScreen = ({ match, history }) => {
             setName(product.name);
             setPrice(product.price);
             setImage(product.image);
+            setCountInStock(product.countInStock)
             setCategory(product.category);
             setDescription(product.description);
             }
@@ -78,6 +80,7 @@ const submitHandler = (e) => {
         name,
         price,
         image,
+        countInStock,
         category,
         description,
       })
@@ -132,6 +135,15 @@ const submitHandler = (e) => {
                 onChange={uploadFileHandler}
               ></Form.File>
               {uploading && <Loader />}
+            </Form.Group>
+            <Form.Group controlId='countInStock'>
+              <Form.Label>Count In Stock</Form.Label>
+              <Form.Control
+                type='number'
+                placeholder='Enter countInStock'
+                value={countInStock}
+                onChange={(e) => setCountInStock(e.target.value)}
+              ></Form.Control>
             </Form.Group>
 
             <Form.Group controlId="category">

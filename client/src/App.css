@@ -87,3 +87,7 @@ img.img-fluid {
 span.text-review {
     margin-left: 9px;
 }
+table.table-sm.table.table-striped.table-bordered.table-hover {
+    text-align: center;
+    vertical-align: middle;
+}

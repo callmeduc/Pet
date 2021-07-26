@@ -51,8 +51,9 @@ const ProductScreen = ({ history, match }) => {
   }, [dispatch, match, successProductReview, product]);
 
   const addToCartHandler = () => {
-    toast.info("You have added to cart.");
-    dispatch(addToCart(product, qty));
+      toast.info("You have added to cart.");
+      dispatch(addToCart(product, qty));
+    
   };
   const submitHandler = (e) => {
     e.preventDefault()

@@ -48,14 +48,15 @@ const getProductById = asyncHandler(async (req, res) => {
 const createProduct = asyncHandler(async (req, res) => {
     // const {userInfo} = req.body
     console.log(req.body)
-    const { name, price, image, category, description, userInfo } = req.body
+    const { name, price, image, countInStock, category, description, userInfo } = req.body
     const product = new Product({
       name,
       user: userInfo._id,
       image,
       description,
-  price: price,
-  category
+      price,
+      countInStock,
+      category
     })
   
     const createdProduct = await product.save()
@@ -71,6 +72,7 @@ const updateProduct = asyncHandler(async (req, res) => {
       price,
       description,
       image,
+      countInStock,
       category,
     } = req.body
     console.log(req.body)
@@ -82,6 +84,7 @@ const updateProduct = asyncHandler(async (req, res) => {
       product.price = price
       product.description = description
       product.image = image
+      product.countInStock = countInStock
       product.category = category
       const updatedProduct = await product.save()
       res.json(updatedProduct)
